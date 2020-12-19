@@ -1,0 +1,22 @@
+while True:
+    x = input("Виберіть ваш варіант: A чи B: ")
+    if x == 'A':
+        text = input("Введіть ваше речення або текст: ")
+        l = []
+        s = ' '.join(text)
+        for i in s:
+            if i not in l and i.isalpha():
+                print(i + ': ' + str(s.count(i)))
+                print("------------")
+                l.append(i)
+    elif x == 'B':
+        b = input("Введіть ваше речення або текст: ")
+        i = {}
+        l = []
+        for word in b.strip(",.!?:;").split():
+            i[word] = i[word] + 1 if b in i else 1
+        for word, cnt in sorted(i.items()):
+            print(word.capitalize())
+            l.append(word)
+    else:
+        print("Такого варіанту не існує")
